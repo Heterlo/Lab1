@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+void FillArray(float* A,int N)
+{
+    cout<<"Заполните массив значениями"<<endl;
+    for (int i=0; i<N; i++)
+    {
+        cin>>A[i];
+    }
+}
+
+void NMinmax(float*A, int N)
+{
+    float min=A[0];
+    float max=A[0];
+    int NMin=0;
+    int NMax=0;
+    for (int i=0;i<N-1;i++)
+    {
+        if(A[i+1]>max)
+        {
+            max=A[i+1];
+            NMax=i+1;
+        }
+         if(A[i+1]<min)
+         {
+             max=A[i+1];
+            NMax=i+1;
+         }
+    }
+    cout<<"Максимальный элемент массива равен "<<max<<endl;
+    cout<<"Номер максимального элемента массива равен "<<NMax<<endl;
+    cout<<"Минимальный элемент массива равен "<<min<<endl;
+    cout<<"Номер минимального элемента массива равен "<<NMin<<endl;
+}
+int main()
+{
+    int N;
+    float* A = new float[N];
+    setlocale(LC_ALL,"Russian");
+    for(int i=0;i<3;i++)
+    {
+    cout<<"Введите размер массива"<<endl;
+    cin>>N;
+    FillArray(A, N);
+    NMinmax(A,N);
+    }
+    return 0;
+}
